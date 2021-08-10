@@ -1,0 +1,368 @@
+:root {
+    --background-color: #fdfae7;
+    --text-color: #1a1a1a;
+
+    --accent-color-1: #DB4C3F;
+    --accent-color-2: #C04237;
+    --accent-color-3: #8D3028;
+    
+    --active: #368600;
+  }
+  
+  [data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #fdfae7;
+    
+    --accent-color-1: #FF6449;
+    --accent-color-2: #DB4C3F;
+    --accent-color-3: #C04237;
+
+    --active: #00ff37;
+}
+
+* {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.active {
+    color: var(--active);
+}
+
+#headline {
+  padding: 7px 0px;
+  margin: 0px;
+  text-align: center;
+  background-color: var(--accent-color-3);
+  width: 100vw;
+}
+
+#container {
+  display: flex;
+  height: calc(100vh - 51px);
+}
+
+#allLists {
+  width: 0vw;
+  display: none;
+  min-height: calc(100vh - 51px);
+  border-right: 1px solid var(--text-color);
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: absolute;
+}
+
+#switchViewBtn {
+  border: none;
+  position: fixed;
+  top: 65px;
+  left: 10px;
+  z-index: 3;
+  font-size: 2em;
+  background: transparent;
+
+  i {
+    background: inherit;
+  }
+}
+
+.opened {
+  width: 100vw !important;
+  display: block !important;
+  z-index: 2 !important;
+}
+
+#todo-list {
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#list-header, #todo-header {
+  padding: 10px 0px;
+  text-align: center;
+  
+  h2 {
+    font-size: 2.3em;
+  }
+
+  h2, h3 {
+    background-color: #ffffff00;
+    margin: 0;
+  }
+}
+
+#list-header {
+  background-color: var(--accent-color-2);
+}
+
+#todo-header {
+  background-color: var(--accent-color-1); 
+}
+
+#newTaskCreater, #newListCreater {
+  margin-top: 0px;
+  border-bottom: solid 1px var(--text-color);
+  
+  input {
+    width: calc(100% - 36px);
+    padding: 0;
+    height: 55px;
+    border: none;
+    margin-left: 35px;
+    font-size: 1.7em;
+    outline: none;
+    font-family: 'Caveat', cursive;
+  }
+
+  button {
+    position: absolute;
+    vertical-align: middle;
+    border: none;
+    font-size: 2.5em;
+    padding: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--accent-color-2);
+    }
+  }
+}
+
+
+.task {
+  border-bottom: solid var(--text-color) 1px;
+  min-height: 55px;
+  position: relative;
+  font-family: 'Caveat', cursive;
+  
+  label {
+    vertical-align: middle;
+    cursor: pointer;
+  }
+}
+
+.active-list {
+  color: var(--accent-color-1);
+}
+
+.tasks, .task-list {
+  font-size: 2em;
+}
+
+.task-list {
+  min-height: 55px;
+  position: relative;
+  margin: 5px;
+  list-style: circle;
+  padding-left: 33px;
+  font-family: 'Caveat', cursive;
+
+  li {
+    cursor: pointer;
+
+    &:hover {
+      color: var(--accent-color-2);
+      opacity: .8;
+    }
+  }
+}
+
+input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+
+  &:checked + label{ 
+    text-decoration: line-through;
+    opacity: .8;
+  }
+}
+
+.deleteTask {
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1em;
+
+  .fa-trash-alt {
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      color: var(--accent-color-2);
+    }
+  }
+}
+
+.customCheckbox {
+  --size: 0.6em;
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  cursor: pointer;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  margin: 0px 5px;
+  transform: scale(1);
+  transition: transform 300ms ease-in-out;
+}
+
+.task:hover .customCheckbox,  
+[type="checkbox"]:focus + label .customCheckbox {
+  transform: scale(1.2);
+  border: 2px solid var(--accent-color-2);
+}
+
+[type="checkbox"]:checked + label .customCheckbox {
+  background-color: var(--accent-color-1);
+  border-color: var(--accent-color-2);
+  box-shadow: inset 0 0 0px 2px white;
+}
+
+.delete-stuff {
+  position: fixed;
+  bottom: 71px;
+  right: 10px;
+  z-index: 4;
+
+  button {
+    width: 75px;
+    border-radius: 10px;
+    border: 2px solid var(--text-color);
+    cursor: pointer;
+    margin-right: 10px;
+  
+    &:hover {
+      opacity: .7;
+      border: 2px solid var(--accent-color-2);
+    }
+  }
+}
+
+
+@media (min-width: 1000px) {
+  #allLists {
+    width: 40vw;
+    display: block;
+    position: relative !important;
+  }
+
+  #switchViewBtn {
+    display: none;
+  }
+
+  #list-title {
+    padding-left: 50px;
+  }
+}
+
+@media (min-width: 300px) {
+  .opened {
+    width: 75vw !important;
+  }
+}
+
+@media (min-width: 485px) {
+  .opened {
+    width: 45vw !important;
+  }
+
+  .theme-switch-wrapper {
+    bottom: 10px !important;
+    left: 10px;
+    right: unset !important;
+  }
+
+  .delete-stuff {
+    bottom: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Dark mode toggle */
+
+/*Simple css to style it like a toggle switch*/
+.theme-switch-wrapper {
+    position: fixed;
+    right: 20px;
+    bottom: 10px;
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+  
+    em {
+      margin-left: 10px;
+      font-size: 1rem;
+    }
+  }
+  .theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+  
+  .theme-switch input {
+    display:none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+  }
+  
+  input:checked + .slider {
+    background-color: #66bb6a;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
