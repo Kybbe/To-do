@@ -3,7 +3,7 @@
   --text-color: #1a1a1a;
   --accent-color-1: #DB4C3F;
   --accent-color-2: #C04237;
-  --accent-color-3: #8D3028;
+  --accent-color-3: #B33D32;
   --active: #368600; }
 
 [data-theme="dark"] {
@@ -78,6 +78,9 @@ body {
     background-color: #ffffff00;
     margin: 0; }
 
+#list-title {
+  padding-left: 50px; }
+
 #list-header {
   background-color: var(--accent-color-2); }
 
@@ -97,6 +100,8 @@ body {
     outline: none;
     font-family: 'Caveat', cursive; }
   #newTaskCreater button, #newListCreater button {
+    background: transparent;
+    -webkit-appearance: none;
     position: absolute;
     vertical-align: middle;
     border: none;
@@ -135,6 +140,12 @@ body {
     .task-list li:hover {
       color: var(--accent-color-2);
       opacity: .8; }
+
+#emptyListsComment {
+  position: relative;
+  left: 55px; }
+  #emptyListsComment h2 {
+    padding-right: 20px; }
 
 input[type="checkbox"] {
   opacity: 0;
@@ -198,6 +209,8 @@ input[type="checkbox"] {
   right: 10px;
   z-index: 4; }
   .delete-stuff button {
+    background: transparent;
+    -webkit-appearance: none;
     width: 75px;
     border-radius: 10px;
     border: 2px solid var(--text-color);
@@ -216,8 +229,12 @@ input[type="checkbox"] {
   #switchViewBtn {
     display: none; }
 
+  #emptyListsComment {
+    left: 10px !important;
+    top: 85px; }
+
   #list-title {
-    padding-left: 50px; } }
+    padding-left: 0px !important; } }
 @media (min-width: 300px) {
   .opened {
     width: 75vw !important; } }

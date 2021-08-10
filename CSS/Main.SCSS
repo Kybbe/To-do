@@ -4,7 +4,7 @@
 
     --accent-color-1: #DB4C3F;
     --accent-color-2: #C04237;
-    --accent-color-3: #8D3028;
+    --accent-color-3: #B33D32;
     
     --active: #368600;
   }
@@ -98,6 +98,10 @@ body {
   }
 }
 
+#list-title {
+  padding-left: 50px;
+}
+
 #list-header {
   background-color: var(--accent-color-2);
 }
@@ -122,6 +126,8 @@ body {
   }
 
   button {
+    background: transparent;
+    -webkit-appearance: none;
     position: absolute;
     vertical-align: middle;
     border: none;
@@ -173,6 +179,16 @@ body {
       color: var(--accent-color-2);
       opacity: .8;
     }
+  }
+}
+
+#emptyListsComment {
+  // display: none;
+  position: relative;
+  left: 55px;
+
+  h2 {
+    padding-right: 20px;
   }
 }
 
@@ -238,6 +254,8 @@ input[type="checkbox"] {
   z-index: 4;
 
   button {
+    background: transparent;
+    -webkit-appearance: none;
     width: 75px;
     border-radius: 10px;
     border: 2px solid var(--text-color);
@@ -263,8 +281,13 @@ input[type="checkbox"] {
     display: none;
   }
 
+  #emptyListsComment {
+    left: 10px !important;
+    top: 85px;
+  }
+
   #list-title {
-    padding-left: 50px;
+    padding-left: 0px !important;
   }
 }
 

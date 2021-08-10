@@ -25,7 +25,9 @@ toggleSwitch.addEventListener('change', switchTheme, false);
 
 
 
-
+var opened = false;
+const listViewBar = document.getElementById('allLists')
+const taskViewBar = document.getElementById('todo-list')
 const listsContainer = document.querySelector('[data-lists]')
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
@@ -45,6 +47,47 @@ const LOCAL_STORAGE_LIST_KEY = 'task.lists'
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId'
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
+if(lists[0] == undefined){
+    lists = [
+        {
+            "id": "1628623590818",
+            "name": "Groceries (template!)",
+            "tasks": [
+                {
+                    "id": "1628623596258",
+                    "name": "Salad",
+                    "complete": false
+                },
+                {
+                    "id": "1628623599114",
+                    "name": "Tomatoes",
+                    "complete": false
+                },
+                {
+                    "id": "1628623626333",
+                    "name": "アボカド",
+                    "complete": false
+                },
+                {
+                    "id": "1628623643104",
+                    "name": "Bread",
+                    "complete": false
+                },
+                {
+                    "id": "1628623644836",
+                    "name": "Milk",
+                    "complete": false
+                },
+                {
+                    "id": "1628623656935",
+                    "name": "Eggs (6 pack atleast)",
+                    "complete": false
+                }
+            ]
+        }
+    ]
+    selectedListId = "1628623590818"
+}
 if (selectedListId == "null") {
     selectedListId = null;
 }
@@ -128,9 +171,6 @@ deleteListButton.addEventListener('click', e => {
     saveAndRender()
 })
 
-var opened = false;
-const listViewBar = document.getElementById('allLists')
-const taskViewBar = document.getElementById('todo-list')
 switchViewBtn.addEventListener('click', e => {
     openCloseBar();
 })
@@ -165,10 +205,13 @@ function render() {
   renderListCount()
   
   const selectedList = lists.find(list => list.id === selectedListId)
+  const listsComment = document.getElementById('emptyListsComment')
   if (selectedListId == null) {
       listDisplayContainer.style.display = 'none'
+      listsComment.style.display = 'block'
     } else {
-        listDisplayContainer.style.display = ''
+      listDisplayContainer.style.display = ''
+      listsComment.style.display = 'none'
     listTitleElement.innerText = selectedList.name
     renderTaskCount(selectedList)
     clearElement(tasksContainer)
@@ -222,7 +265,5 @@ function clearElement(element) {
     element.removeChild(element.firstChild)
   }
 }
-
-
 
 render()
