@@ -109,7 +109,7 @@
   </div>
 
   <template id="taskTemplate">
-    <div class="task" onclick="playBell()">
+    <div class="task">
       <input type="checkbox">
       <label>
         <span class="customCheckbox"></span></label>
@@ -118,16 +118,3 @@
   </template>
   
 </body>
-
-<script>
-
-var audio = new Audio("Completion_Bell.wav");
-
-  function playBell() {
-    audio.pause();
-    audio.currentTime = 0;
-    if(e.target.checked) {
-        audio.play();
-    }
-  }
-</script>
