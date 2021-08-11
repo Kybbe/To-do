@@ -60,6 +60,8 @@ body {
 
 #switchViewBtn {
   -webkit-appearance: none;
+  border-radius: 0;
+  width: 39px;
   border: none;
   position: fixed;
   top: 65px;
@@ -204,6 +206,8 @@ input[type="checkbox"] {
 
 .deleteTask {
   -webkit-appearance: none;
+  border-radius: 0;
+  width: 39px;
   border: none;
   cursor: pointer;
   position: absolute;
