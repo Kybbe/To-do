@@ -7,6 +7,8 @@
     --accent-color-3: #B33D32;
     
     --active: #368600;
+
+    --line-color: #d6d6d6;
   }
   
   [data-theme="dark"] {
@@ -18,6 +20,8 @@
     --accent-color-3: #C04237;
 
     --active: #00ff37;
+
+    --line-color: #3b3b3b;
 }
 
 * {
@@ -45,7 +49,6 @@ body {
 
 #container {
   display: flex;
-  height: calc(100vh - 51px);
 }
 
 #allLists {
@@ -63,7 +66,7 @@ body {
   border-radius: 0;
   width: 37px;
   border: none;
-  position: fixed;
+  position: absolute;
   top: 65px;
   left: 10px;
   z-index: 3;
@@ -73,9 +76,12 @@ body {
 
   i {
     background: inherit;
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
 
     &:hover {
       opacity: 0.7;
+      transform: scale(1.2);
     }
   }
 }
@@ -90,6 +96,8 @@ body {
   width: 100vw;
   overflow-y: auto;
   overflow-x: hidden;
+  height: calc(100vh - 51px);
+  position: relative;
 }
 
 #list-header, #todo-header {
@@ -108,6 +116,7 @@ body {
 
 #list-title {
   padding-left: 50px;
+  padding-right: 50px;
 }
 
 #list-header {
@@ -120,7 +129,11 @@ body {
 
 #newTaskCreater, #newListCreater {
   margin-top: 0px;
-  border-bottom: solid 1px var(--text-color);
+  border-bottom: solid 1px var(--line-color);
+
+  &:focus-within {
+    border-bottom: solid 1px var(--text-color);
+  }
   
   input {
     width: calc(100% - 36px);
@@ -153,7 +166,7 @@ body {
 
 
 .task {
-  border-bottom: solid var(--text-color) 1px;
+  border-bottom: solid var(--line-color) 1px;
   min-height: 55px;
   position: relative;
   font-family: 'Caveat', cursive;
@@ -188,6 +201,15 @@ body {
       opacity: .8;
     }
   }
+}
+
+.backgroundLines {
+  margin: 0;
+  background: linear-gradient( 180deg, var(--background-color), var(--background-color) 55px, var(--line-color) 55px);
+  background-size: 100% 56px;
+  height: 100%;
+  width: 100%;
+  padding-top: 56px;
 }
 
 #emptyListsComment {
@@ -258,13 +280,14 @@ input[type="checkbox"] {
 }
 
 .delete-stuff {
+  background: transparent;
   position: fixed;
   bottom: 71px;
   right: 10px;
   z-index: 4;
 
   button {
-    background: transparent;
+    background: var(--background-color);
     -webkit-appearance: none;
     width: 75px;
     border-radius: 10px;
@@ -337,6 +360,7 @@ input[type="checkbox"] {
 
 /*Simple css to style it like a toggle switch*/
 .theme-switch-wrapper {
+    background: transparent;
     position: fixed;
     right: 20px;
     bottom: 10px;
