@@ -59,6 +59,7 @@ body {
 }
 
 #switchViewBtn {
+  -webkit-appearance: none;
   border: none;
   position: fixed;
   top: 65px;
@@ -183,7 +184,6 @@ body {
 }
 
 #emptyListsComment {
-  // display: none;
   position: relative;
   left: 55px;
 
@@ -203,6 +203,7 @@ input[type="checkbox"] {
 }
 
 .deleteTask {
+  -webkit-appearance: none;
   border: none;
   cursor: pointer;
   position: absolute;
