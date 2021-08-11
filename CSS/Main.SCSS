@@ -61,7 +61,7 @@ body {
 #switchViewBtn {
   -webkit-appearance: none;
   border-radius: 0;
-  width: 50px;
+  width: 37px;
   border: none;
   position: fixed;
   top: 65px;
@@ -69,9 +69,14 @@ body {
   z-index: 3;
   font-size: 2em;
   background: transparent;
+  padding: 0;
 
   i {
     background: inherit;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
 

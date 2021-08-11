@@ -51,16 +51,19 @@ body {
 #switchViewBtn {
   -webkit-appearance: none;
   border-radius: 0;
-  width: 50px;
+  width: 37px;
   border: none;
   position: fixed;
   top: 65px;
   left: 10px;
   z-index: 3;
   font-size: 2em;
-  background: transparent; }
+  background: transparent;
+  padding: 0; }
   #switchViewBtn i {
     background: inherit; }
+    #switchViewBtn i:hover {
+      opacity: 0.7; }
 
 .opened {
   width: 100vw !important;
