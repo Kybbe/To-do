@@ -266,7 +266,8 @@ input[type="checkbox"] {
     top: 85px; }
 
   #list-title {
-    padding-left: 0px !important; } }
+    padding-left: 0px !important;
+    padding-right: 0px !important; } }
 @media (min-width: 300px) {
   .opened {
     width: 75vw !important; } }
