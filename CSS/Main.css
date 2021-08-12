@@ -217,6 +217,11 @@ input[type="checkbox"] {
               transform: scale(1.1);
       color: var(--accent-color-2); }
 
+.deleteList {
+  position: absolute;
+  bottom: 1px;
+  right: 85px; }
+
 .customCheckbox {
   --size: 0.6em;
   display: inline-block;
@@ -248,7 +253,7 @@ input[type="checkbox"] {
 .delete-stuff {
   background: transparent;
   position: fixed;
-  bottom: 71px;
+  bottom: 55px;
   right: 10px;
   z-index: 4; }
   .delete-stuff button {
