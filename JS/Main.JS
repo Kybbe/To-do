@@ -39,6 +39,7 @@ const listsCounter = document.querySelector('[data-list-list-count]')
 const tasksContainer = document.querySelector('[data-tasks]')
 const switchViewBtn = document.getElementById('switchViewBtn')
 const taskTemplate = document.getElementById('taskTemplate')
+const cover = document.getElementById('cover-todo-list')
 const newTaskForm = document.querySelector('[data-new-task-form]')
 const newTaskInput = document.querySelector('[data-new-task-input]')
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
@@ -71,12 +72,12 @@ if(lists[0] == undefined){
                 {
                     "id": "1628623643104",
                     "name": "Bread",
-                    "complete": false
+                    "complete": true
                 },
                 {
                     "id": "1628623644836",
                     "name": "Milk",
-                    "complete": false
+                    "complete": true
                 },
                 {
                     "id": "1628623656935",
@@ -175,15 +176,21 @@ switchViewBtn.addEventListener('click', e => {
     openCloseBar();
 })
 
+cover.addEventListener('click', e => {
+    openCloseBar();
+})
+
 function openCloseBar() {
     if(!opened) {
         $(listViewBar).addClass("opened");
         taskViewBar.style.opacity = "0.2"
+        cover.style.display = "block"
         
         opened = true;
-    } else {
+      } else {
         $(listViewBar).removeClass("opened");
         taskViewBar.style.opacity = "1"
+        cover.style.display = "none"
         
         opened = false;
     }

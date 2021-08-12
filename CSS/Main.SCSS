@@ -59,6 +59,17 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   position: absolute;
+  z-index: 3;
+}
+
+#cover-todo-list {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: calc(100vh - 51px);
+  background: transparent;
+  overflow: hidden;
+  display: none;
 }
 
 #switchViewBtn {
@@ -69,7 +80,7 @@ body {
   position: absolute;
   top: 65px;
   left: 10px;
-  z-index: 3;
+  z-index: 4;
   font-size: 2em;
   background: transparent;
   padding: 0;
@@ -89,7 +100,7 @@ body {
 .opened {
   width: 100vw !important;
   display: block !important;
-  z-index: 2 !important;
+  z-index: 3 !important;
 }
 
 #todo-list {
@@ -179,6 +190,7 @@ body {
 
 .active-list {
   color: var(--accent-color-1);
+  text-decoration: underline;
 }
 
 .tasks, .task-list {
