@@ -139,7 +139,8 @@ body {
     padding: 0px;
     padding-top: 5px;
     padding-left: 5px;
-    cursor: pointer; }
+    cursor: pointer;
+    height: 45px; }
     #newTaskCreater button:hover, #newListCreater button:hover {
       color: var(--accent-color-2); }
 
