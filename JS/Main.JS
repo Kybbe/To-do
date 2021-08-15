@@ -1,31 +1,6 @@
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
-
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-  
-    if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
-    }
-}
-
-function switchTheme(e) {
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    }
-    else {        document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-    }    
-}
-
-toggleSwitch.addEventListener('change', switchTheme, false);
-
-
-
-
-
-var opened = false;
+const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 const listViewBar = document.getElementById('allLists')
 const taskViewBar = document.getElementById('todo-list')
 const listsContainer = document.querySelector('[data-lists]')
@@ -43,6 +18,7 @@ const cover = document.getElementById('cover-todo-list')
 const newTaskForm = document.querySelector('[data-new-task-form]')
 const newTaskInput = document.querySelector('[data-new-task-input]')
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
+var opened = false;
 
 const LOCAL_STORAGE_LIST_KEY = 'task.lists'
 const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'task.selectedListId'
@@ -91,6 +67,29 @@ if(lists[0] == undefined){
 }
 if (selectedListId == "null") {
     selectedListId = null;
+}
+
+if(!currentTheme && userPrefersDark) {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  toggleSwitch.checked = true;
+}
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+}
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    else {        document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+    }    
 }
 
 listsContainer.addEventListener('click', e => {
@@ -272,5 +271,7 @@ function clearElement(element) {
     element.removeChild(element.firstChild)
   }
 }
+
+toggleSwitch.addEventListener('change', switchTheme, false);
 
 render()
