@@ -1,5 +1,5 @@
 :root {
-  --background-color: #fdfae7;
+  --background-color: #f5f5f5;
   --text-color: #1a1a1a;
 
   --accent-color-1: #DB4C3F;
@@ -13,7 +13,7 @@
 
 [data-theme="dark"] {
   --background-color: #1a1a1a;
-  --text-color: #fdfae7;
+  --text-color: #f5f5f5;
 
   --accent-color-1: #FF6449;
   --accent-color-2: #DB4C3F;
@@ -79,8 +79,8 @@ body {
   width: 37px;
   border: none;
   position: absolute;
-  top: 65px;
   left: 10px;
+  top: 15px;
   z-index: 4;
   font-size: 2em;
   background: transparent;

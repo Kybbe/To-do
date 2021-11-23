@@ -212,12 +212,12 @@ function render() {
   const selectedList = lists.find(list => list.id === selectedListId)
   const listsComment = document.getElementById('emptyListsComment')
   const backgroundLines = document.getElementsByClassName("backgroundLines")[0];
-  backgroundLines.style.height = `calc(100% - (197px + ${selectedList.tasks.length * 56}px))`;
   
   if (selectedListId == null) {
-      listDisplayContainer.style.display = 'none'
-      listsComment.style.display = 'block'
+    listDisplayContainer.style.display = 'none'
+    listsComment.style.display = 'block'
   } else {
+      backgroundLines.style.height = `calc(100% - (145px + ${selectedList.tasks.length * 56}px))`;
       listDisplayContainer.style.display = ''
       listsComment.style.display = 'none'
       listTitleElement.innerText = selectedList.name
