@@ -1,42 +1,43 @@
 :root {
-    --background-color: #fdfae7;
-    --text-color: #1a1a1a;
+  --background-color: #fdfae7;
+  --text-color: #1a1a1a;
 
-    --accent-color-1: #DB4C3F;
-    --accent-color-2: #C04237;
-    --accent-color-3: #B33D32;
-    
-    --active: #368600;
+  --accent-color-1: #DB4C3F;
+  --accent-color-2: #C04237;
+  --accent-color-3: #B33D32;
 
-    --line-color: #d6d6d6;
-  }
-  
-  [data-theme="dark"] {
-    --background-color: #1a1a1a;
-    --text-color: #fdfae7;
-    
-    --accent-color-1: #FF6449;
-    --accent-color-2: #DB4C3F;
-    --accent-color-3: #C04237;
+  --active: #368600;
 
-    --active: #00ff37;
+  --line-color: #d6d6d6;
+}
 
-    --line-color: #3b3b3b;
+[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #fdfae7;
+
+  --accent-color-1: #FF6449;
+  --accent-color-2: #DB4C3F;
+  --accent-color-3: #C04237;
+
+  --active: #00ff37;
+
+  --line-color: #3b3b3b;
 }
 
 * {
-    background-color: var(--background-color);
-    color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  height: 100%;
 }
 
 .active {
-    color: var(--active);
+  color: var(--active);
 }
 
 #headline {
@@ -114,7 +115,7 @@ body {
 #list-header, #todo-header {
   padding: 10px 0px;
   text-align: center;
-  
+
   h2 {
     font-size: 2.3em;
   }
@@ -128,6 +129,7 @@ body {
 #list-title {
   padding-left: 50px;
   padding-right: 50px;
+  word-break: break-word;
 }
 
 #list-header {
@@ -135,7 +137,7 @@ body {
 }
 
 #todo-header {
-  background-color: var(--accent-color-1); 
+  background-color: var(--accent-color-1);
 }
 
 #newTaskCreater, #newListCreater {
@@ -145,7 +147,7 @@ body {
   &:focus-within {
     border-bottom: solid 1px var(--text-color);
   }
-  
+
   input {
     width: calc(100% - 36px);
     padding: 0;
@@ -182,7 +184,7 @@ body {
   min-height: 55px;
   position: relative;
   font-family: 'Caveat', cursive;
-  
+
   label {
     vertical-align: middle;
     cursor: pointer;
@@ -206,6 +208,10 @@ body {
   padding-left: 33px;
   font-family: 'Caveat', cursive;
 
+  .list-name {
+    word-break: break-word;
+  }
+
   li {
     cursor: pointer;
 
@@ -220,7 +226,7 @@ body {
   margin: 0;
   background: linear-gradient( 180deg, var(--background-color), var(--background-color) 55px, var(--line-color) 55px);
   background-size: 100% 56px;
-  height: 100%;
+  height: calc(100% - 198px);
   width: 100%;
   padding-top: 56px;
 }
@@ -238,7 +244,7 @@ input[type="checkbox"] {
   opacity: 0;
   position: absolute;
 
-  &:checked + label{ 
+  &:checked + label{
     text-decoration: line-through;
     opacity: .8;
   }
@@ -286,7 +292,7 @@ input[type="checkbox"] {
   transition: transform 300ms ease-in-out;
 }
 
-.task:hover .customCheckbox,  
+.task:hover .customCheckbox,
 [type="checkbox"]:focus + label .customCheckbox {
   transform: scale(1.2);
   border: 2px solid var(--accent-color-2);
@@ -313,7 +319,7 @@ input[type="checkbox"] {
     border: 2px solid var(--text-color);
     cursor: pointer;
     margin-right: 10px;
-  
+
     &:hover {
       opacity: .7;
       border: 2px solid var(--accent-color-2);
@@ -388,7 +394,7 @@ input[type="checkbox"] {
 
     display: flex;
     align-items: center;
-  
+
     em {
       margin-left: 10px;
       font-size: 1rem;
@@ -400,11 +406,11 @@ input[type="checkbox"] {
     position: relative;
     width: 60px;
   }
-  
+
   .theme-switch input {
     display:none;
   }
-  
+
   .slider {
     background-color: #ccc;
     bottom: 0;
@@ -415,7 +421,7 @@ input[type="checkbox"] {
     top: 0;
     transition: .4s;
   }
-  
+
   .slider:before {
     background-color: #fff;
     bottom: 4px;
@@ -426,20 +432,19 @@ input[type="checkbox"] {
     transition: .4s;
     width: 26px;
   }
-  
+
   input:checked + .slider {
     background-color: #66bb6a;
   }
-  
+
   input:checked + .slider:before {
     transform: translateX(26px);
   }
-  
+
   .slider.round {
     border-radius: 34px;
   }
-  
+
   .slider.round:before {
     border-radius: 50%;
   }
-  

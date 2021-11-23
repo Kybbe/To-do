@@ -209,19 +209,21 @@ function render() {
   clearElement(listsContainer)
   renderLists()
   renderListCount()
-  
   const selectedList = lists.find(list => list.id === selectedListId)
   const listsComment = document.getElementById('emptyListsComment')
+  const backgroundLines = document.getElementsByClassName("backgroundLines")[0];
+  backgroundLines.style.height = `calc(100% - (197px + ${selectedList.tasks.length * 56}px))`;
+  
   if (selectedListId == null) {
       listDisplayContainer.style.display = 'none'
       listsComment.style.display = 'block'
-    } else {
+  } else {
       listDisplayContainer.style.display = ''
       listsComment.style.display = 'none'
-    listTitleElement.innerText = selectedList.name
-    renderTaskCount(selectedList)
-    clearElement(tasksContainer)
-    renderTasks(selectedList)
+      listTitleElement.innerText = selectedList.name
+      renderTaskCount(selectedList)
+      clearElement(tasksContainer)
+      renderTasks(selectedList)
   }
 }
 
