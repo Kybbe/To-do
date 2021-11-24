@@ -87,8 +87,9 @@ function switchTheme(e) {
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
     }
-    else {        document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
+    else {        
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
     }    
 }
 
@@ -211,13 +212,19 @@ function render() {
   renderListCount()
   const selectedList = lists.find(list => list.id === selectedListId)
   const listsComment = document.getElementById('emptyListsComment')
-  const backgroundLines = document.getElementsByClassName("backgroundLines")[0];
+  let backgroundLines = document.getElementsByClassName("backgroundLines")[0];
   
   if (selectedListId == null) {
     listDisplayContainer.style.display = 'none'
     listsComment.style.display = 'block'
   } else {
-      backgroundLines.style.height = `calc(100% - (145px + ${selectedList.tasks.length * 56}px))`;
+      backgroundLines.style.height = `calc(100% - (197px + ${selectedList.tasks.length * 56}px))`;
+      if(backgroundLines.offsetHeight < 57) {
+        backgroundLines.style.padding = "0px";
+      } else {
+        backgroundLines.style.padding = "56px 0px 0px 0px";
+      }
+
       listDisplayContainer.style.display = ''
       listsComment.style.display = 'none'
       listTitleElement.innerText = selectedList.name

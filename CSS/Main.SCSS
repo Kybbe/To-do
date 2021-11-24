@@ -29,11 +29,11 @@
   color: var(--text-color);
 }
 
+
 body {
   margin: 0px;
   padding: 0px;
   overflow: hidden;
-  height: 100%;
 }
 
 .active {
@@ -50,6 +50,7 @@ body {
 
 #container {
   display: flex;
+  height: 100vh;
 }
 
 #allLists {
@@ -108,7 +109,7 @@ body {
   width: 100vw;
   overflow-y: auto;
   overflow-x: hidden;
-  height: calc(100vh - 51px);
+  height: 100vh;
   position: relative;
 }
 
@@ -343,7 +344,7 @@ input[type="checkbox"] {
 
   #emptyListsComment {
     left: 10px !important;
-    top: 85px;
+    top: 80px;
   }
 
   #list-title {
