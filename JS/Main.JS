@@ -219,11 +219,7 @@ function render() {
     listsComment.style.display = 'block'
   } else {
       backgroundLines.style.height = `calc(100% - (197px + ${selectedList.tasks.length * 56}px))`;
-      if(backgroundLines.offsetHeight < 57) {
-        backgroundLines.style.padding = "0px";
-      } else {
-        backgroundLines.style.padding = "56px 0px 0px 0px";
-      }
+      
 
       listDisplayContainer.style.display = ''
       listsComment.style.display = 'none'

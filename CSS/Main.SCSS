@@ -56,7 +56,7 @@ body {
 #allLists {
   width: 0vw;
   display: none;
-  min-height: calc(100vh - 51px);
+  min-height: 100vh;
   border-right: 1px solid var(--text-color);
   overflow-y: auto;
   overflow-x: hidden;
@@ -68,7 +68,7 @@ body {
   position: absolute;
   z-index: 2;
   width: 100%;
-  height: calc(100vh - 51px);
+  height: 100vh;
   background: transparent;
   overflow: hidden;
   display: none;
@@ -205,6 +205,8 @@ body {
 
 .task-list {
   min-height: 55px;
+  height: calc(100vh - 185px);
+  overflow-y: auto;
   position: relative;
   margin: 5px;
   list-style: circle;
