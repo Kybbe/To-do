@@ -69,9 +69,32 @@ if (selectedListId == "null") {
     selectedListId = null;
 }
 
-if(!currentTheme && userPrefersDark) {
-  document.documentElement.setAttribute('data-theme', 'dark');
-  toggleSwitch.checked = true;
+function getParameterByName(name, url = window.location.href) {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+var urlPrefersTheme = getParameterByName("theme");
+
+if(urlPrefersTheme) {
+  if(urlPrefersTheme === "dark" || urlPrefersTheme === "light") {
+    document.documentElement.setAttribute('data-theme', urlPrefersTheme);
+    console.log(urlPrefersTheme)
+    if(urlPrefersTheme == "dark") {
+      toggleSwitch.checked = true;
+    }
+  }
+}
+
+if(!urlPrefersTheme) {
+  if(!currentTheme && userPrefersDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    toggleSwitch.checked = true;
+  }
 }
 
 if (currentTheme) {
